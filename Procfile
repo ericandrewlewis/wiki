@@ -1,1 +1,1 @@
-web: yarn build; rails server
+web: npm run build; rails server
