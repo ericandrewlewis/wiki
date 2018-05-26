@@ -5,12 +5,12 @@
   "dependencies": {
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build":
-      "cp public-react/* public && react-scripts build && rm -r public/* && mv build/* public",
+    "build": "cp public-react/* public && react-scripts build && rm -r public/* && mv build/* public",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
