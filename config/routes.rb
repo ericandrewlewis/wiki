@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   delete "/logout"      => "sessions#destroy"
   get "/profile"        => "users#profile"
   resources :users
+  resources :articles
+  get "/articles/slug/:slug.json" => "articles#show_for_slug"
 
   get "/csrf-token" => "application#csrf_token"
 
