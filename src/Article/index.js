@@ -16,6 +16,10 @@ class Article extends Component {
   componentDidMount() {
     const { slug } = this.props.match.params;
     api.article.bySlug(slug).then(response => {
+      if (response.data.length === 0) {
+        console.log("no data");
+        return;
+      }
       const article = response.data[0];
       this.setState({
         content: article.attributes["content"],

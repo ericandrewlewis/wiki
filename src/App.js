@@ -48,6 +48,7 @@ class App extends Component {
         <div className="App">
           <h2 className="site-title">Wiki Wiki Wow Wow</h2>
           <LogoutButton onUserLoggedOut={this.onUserLoggedOut} />
+          <Route path="/article/new" component={NewArticle} />
           <Route path="/article/:slug" component={Article} />
         </div>
       </Router>
