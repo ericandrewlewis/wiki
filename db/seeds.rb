@@ -10,7 +10,7 @@ User.destroy_all
 
 User.create!({
   username: "eric",
-  password_digest: "$2a$04$UW/nNNbmO31M6HPzfEMqcOQH05z1dz.3VzehOSZKSUJW.KCG/IzCu",
+  password_digest: "$2a$11$K33t2objHvHb3Aq.935wseRgaNGcuJsp2hbkMrZFvGzw2FcjVbH..",
   email: "eric.andrew.lewis@gmail.com",
   name: "Eric Lewis"
 })
