@@ -2,6 +2,7 @@
   "name": "react-tmp",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
@@ -10,7 +11,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "cp public-react/* public && react-scripts build && rm -r public/* && mv build/* public",
+    "build":
+      "cp public-react/* public && react-scripts build && rm -r public/* && mv build/* public",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

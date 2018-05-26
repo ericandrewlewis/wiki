@@ -1,0 +1,19 @@
+.Register .title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.Register .form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.Register .form textarea,
+.Register .form input,
+.Register .form select {
+  margin-bottom: 1rem;
+}
+
+.Register .form button {
+  grid-column: 2 / 3;
+}

@@ -1,0 +1,19 @@
+.Login .title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.Login .form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.Login .form textarea,
+.Login .form input,
+.Login .form select {
+  margin-bottom: 1rem;
+}
+
+.Login .form button {
+  grid-column: 2 / 3;
+}
