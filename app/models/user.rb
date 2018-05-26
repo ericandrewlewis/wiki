@@ -3,6 +3,9 @@ class User < ApplicationRecord
   has_secure_password
   has_secure_token :auth_token
 
+  validates :email, inclusion: { in: ['eric.andrew.lewis@gmail.com' ] }
+  validates :email, uniqueness: true
+
   def invalidate_token
     self.update_columns(auth_token: nil)
   end
