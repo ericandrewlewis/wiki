@@ -87,7 +87,7 @@ class NewArticle extends Component {
     return (
       <div className="NewArticle">
         <form onSubmit={this.onFormSubmit} onChange={this.onInputChange}>
-          <input type="text" name="title" />
+          <input type="text" name="title" className="title" />
           <div className="editor" ref={this.editorRef} />
           <button type="submit">Save</button>
         </form>

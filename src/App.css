@@ -1,3 +1,9 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Lato", sans-serif;
 }
@@ -8,11 +14,20 @@ body {
 
 .App .site-title {
   font-size: 1.5rem;
-  margin: 1rem 0;
+  margin: 1rem 0 0.5rem;
 }
 
 @media screen and (min-width: 500px) {
   .App .site-title {
     font-size: 2.5rem;
   }
+}
+
+.App nav {
+  margin-bottom: 1rem;
+}
+.App nav a {
+  color: #7161ef;
+  text-decoration: none;
+  margin-right: 0.25rem;
 }

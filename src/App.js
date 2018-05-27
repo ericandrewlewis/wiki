@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Register from "./Register";
 import LogoutButton from "./LogoutButton";
@@ -47,7 +47,11 @@ class App extends Component {
       <Router>
         <div className="App">
           <h2 className="site-title">Wiki Wiki Wow Wow</h2>
-          <LogoutButton onUserLoggedOut={this.onUserLoggedOut} />
+          <nav>
+            <Link to="article/new">New</Link>
+            <Link to="article">All Pages</Link>
+            <LogoutButton onUserLoggedOut={this.onUserLoggedOut} />
+          </nav>
           <Route path="/article/new" component={NewArticle} />
           <Route
             path="/article/:slug"

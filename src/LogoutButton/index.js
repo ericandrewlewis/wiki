@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Auth from "../Auth";
-
+import "./style.css";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +30,7 @@ class App extends Component {
 
   render() {
     return (
-      <form onSubmit={evt => evt.preventDefault()}>
+      <form className="LogoutButton" onSubmit={evt => evt.preventDefault()}>
         <button onClick={this.logout}>Logout</button>
       </form>
     );
