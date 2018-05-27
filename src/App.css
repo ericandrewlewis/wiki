@@ -13,13 +13,13 @@ body {
   margin: 0 auto;
 }
 
-.App .site-title {
+.App header .site-title {
   font-size: 1.5rem;
   margin: 1rem 0 0.5rem;
 }
 
 @media screen and (min-width: 500px) {
-  .App .site-title {
+  .App header .site-title {
     font-size: 2.5rem;
   }
 }
@@ -33,4 +33,12 @@ body {
   text-decoration: none;
   margin-right: 1rem;
   font-size: 1.5rem;
+}
+
+.App .site-footer {
+  margin: 7rem 0;
+}
+
+.App .site-footer .site-title {
+  font-size: 2rem;
 }

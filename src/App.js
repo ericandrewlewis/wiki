@@ -48,12 +48,13 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <h2 className="site-title">Wiki Wiki Wow Wow</h2>
-          <nav>
-            <Link to="/article/new">New</Link>
-            <Link to="/article">All Pages</Link>
-            <LogoutButton onUserLoggedOut={this.onUserLoggedOut} />
-          </nav>
+          <header>
+            <h2 className="site-title">Wikiwiki Wowwow</h2>
+            <nav>
+              <Link to="/article/new">New</Link>
+              <Link to="/article">All Pages</Link>
+            </nav>
+          </header>
           <Route path="/article" exact component={AllArticles} />
           <Route path="/article/new" component={NewArticle} />
           <Route
@@ -67,6 +68,10 @@ class App extends Component {
             }}
           />
           <Route path="/article/:slug/edit" component={EditArticle} />
+          <footer className="site-footer">
+            <h2 className="site-title">Wikiwiki wowwow</h2>
+            <LogoutButton onUserLoggedOut={this.onUserLoggedOut} />
+          </footer>
         </div>
       </Router>
     );
