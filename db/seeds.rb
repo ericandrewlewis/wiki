@@ -7,10 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Article.destroy_all
 
 User.create!({
   username: "eric",
   password_digest: "$2a$11$K33t2objHvHb3Aq.935wseRgaNGcuJsp2hbkMrZFvGzw2FcjVbH..",
   email: "eric.andrew.lewis@gmail.com",
   name: "Eric Lewis"
+})
+
+Article.create!({
+  title: 'Kombucha',
+  slug: 'kombucha'
 })
