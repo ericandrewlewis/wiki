@@ -30,7 +30,7 @@ class App extends Component {
 
   render() {
     return (
-      <form>
+      <form onSubmit={evt => evt.preventDefault()}>
         <button onClick={this.logout}>Logout</button>
       </form>
     );
