@@ -10,6 +10,7 @@
 
 .NewArticle .ProseMirror p {
   margin-bottom: 1rem;
+  line-height: 1.4;
 }
 
 .NewArticle .ProseMirror h2 {

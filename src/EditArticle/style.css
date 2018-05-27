@@ -10,6 +10,7 @@
 
 .EditArticle .ProseMirror p {
   margin-bottom: 1rem;
+  line-height: 1.4;
 }
 
 .EditArticle .ProseMirror h2 {
