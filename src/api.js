@@ -2,6 +2,15 @@ import Auth from "./Auth";
 
 const api = {
   article: {
+    all() {
+      return fetch(`/articles`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${Auth.getToken()}`,
+          token: Auth.getToken()
+        }
+      }).then(response => response.json());
+    },
     bySlug(slug) {
       return fetch(`/articles/slug/${slug}.json`, {
         headers: {

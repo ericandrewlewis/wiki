@@ -6,6 +6,7 @@ import LogoutButton from "./LogoutButton";
 import Login from "./Login";
 
 import NewArticle from "./NewArticle";
+import AllArticles from "./AllArticles";
 import Article from "./Article";
 import Auth from "./Auth";
 import "./App.css";
@@ -52,6 +53,7 @@ class App extends Component {
             <Link to="/article">All Pages</Link>
             <LogoutButton onUserLoggedOut={this.onUserLoggedOut} />
           </nav>
+          <Route path="/article" exact component={AllArticles} />
           <Route path="/article/new" component={NewArticle} />
           <Route
             path="/article/:slug"

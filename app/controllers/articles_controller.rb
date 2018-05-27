@@ -1,6 +1,10 @@
 class ArticlesController < ApiController
   before_action :require_login
 
+  def index
+    render json: ArticleSerializer.new(Article.all).serializable_hash
+  end
+
   def create
     article_params = {}
     article_params[:title] = params[:article][:title]

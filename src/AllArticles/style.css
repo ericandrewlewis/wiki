@@ -1,0 +1,9 @@
+.AllArticles .title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.AllArticles p {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
