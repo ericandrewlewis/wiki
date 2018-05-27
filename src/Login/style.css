@@ -3,17 +3,21 @@
   margin-bottom: 0.5rem;
 }
 
-.Login .form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
 .Login .form textarea,
 .Login .form input,
-.Login .form select {
+.Login .form select,
+.Login .form label {
   margin-bottom: 1rem;
+  display: block;
+  width: 100%;
 }
 
-.Login .form button {
-  grid-column: 2 / 3;
+@media screen and (min-width: 500px) {
+  .Login .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .Login .form button {
+    grid-column: 2 / 3;
+  }
 }

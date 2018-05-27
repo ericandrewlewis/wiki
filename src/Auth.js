@@ -1,19 +1,19 @@
 class Auth {
   // https://vladimirponomarev.com/blog/authentication-in-react-apps-jwt
   static setToken(token) {
-    sessionStorage.setItem("token", token);
+    localStorage.setItem("token", token);
   }
 
   static isUserAuthenticated() {
-    return sessionStorage.getItem("token") !== null;
+    return localStorage.getItem("token") !== null;
   }
 
   static deauthenticateUser() {
-    sessionStorage.removeItem("token");
+    localStorage.removeItem("token");
   }
 
   static getToken() {
-    return sessionStorage.getItem("token");
+    return localStorage.getItem("token");
   }
 }
 

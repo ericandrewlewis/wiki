@@ -3,17 +3,21 @@
   margin-bottom: 0.5rem;
 }
 
-.Register .form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
 .Register .form textarea,
 .Register .form input,
-.Register .form select {
+.Register .form select,
+.Register .form label {
   margin-bottom: 1rem;
+  display: block;
+  width: 100%;
 }
 
-.Register .form button {
-  grid-column: 2 / 3;
+@media screen and (min-width: 500px) {
+  .Register .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .Register .form button {
+    grid-column: 2 / 3;
+  }
 }
