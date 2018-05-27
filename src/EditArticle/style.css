@@ -1,18 +1,23 @@
-.NewArticle .ProseMirror {
+.EditArticle .ProseMirror {
   padding: 8px 8px 4px 14px;
   min-height: 180px;
 }
 
-.NewArticle .editor {
+.EditArticle .editor {
   border: 2px solid rgba(0, 0, 0, 0.2);
   margin-bottom: 1rem;
 }
 
-.NewArticle .ProseMirror p {
+.EditArticle .ProseMirror p {
   margin-bottom: 1rem;
 }
 
-.NewArticle .title {
+.EditArticle .ProseMirror h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5em;
+}
+
+.EditArticle .title {
   width: 100%;
   margin-bottom: 1rem;
   font-size: 2rem;

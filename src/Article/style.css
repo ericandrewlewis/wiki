@@ -7,6 +7,11 @@
   margin-left: 1rem;
 }
 
+.Article h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5em;
+}
+
 .Article p {
   font-size: 1.5rem;
   margin-bottom: 1rem;

@@ -12,6 +12,11 @@
   margin-bottom: 1rem;
 }
 
+.NewArticle .ProseMirror h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5em;
+}
+
 .NewArticle .title {
   width: 100%;
   margin-bottom: 1rem;

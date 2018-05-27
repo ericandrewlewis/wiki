@@ -9,7 +9,7 @@ import { Redirect } from "react-router";
 import "./style.css";
 import api from "../api";
 
-class NewArticle extends Component {
+class EditArticle extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -88,7 +88,7 @@ class NewArticle extends Component {
       return <Redirect to={`/article/${this.state.article.attributes.slug}`} />;
     }
     return (
-      <div className="NewArticle">
+      <div className="EditArticle">
         <form onSubmit={this.onFormSubmit} onChange={this.onInputChange}>
           <input
             type="text"
@@ -104,4 +104,4 @@ class NewArticle extends Component {
   }
 }
 
-export default NewArticle;
+export default EditArticle;
