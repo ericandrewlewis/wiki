@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { schema } from "prosemirror-schema-basic";
 import { Node, DOMSerializer } from "prosemirror-model";
+import { Link } from "react-router-dom";
 
 import "./style.css";
 import api from "../api";
@@ -10,7 +11,8 @@ class Article extends Component {
     super(props);
     this.state = {
       content: "",
-      title: ""
+      title: "",
+      slug: ""
     };
   }
 
@@ -33,7 +35,8 @@ class Article extends Component {
 
       this.setState({
         content: div.innerHTML,
-        title: article.attributes["title"]
+        title: article.attributes.title,
+        slug: article.attributes.slug
       });
     });
   }
@@ -43,10 +46,13 @@ class Article extends Component {
   }
 
   render() {
-    const { title, content } = this.state;
+    const { title, content, slug } = this.state;
     return (
       <div className="Article">
-        <h1 className="title">{title}</h1>
+        <h1 className="title">
+          {title}
+          <Link to={`/article/${slug}/edit`}>Edit</Link>
+        </h1>
         <div dangerouslySetInnerHTML={{ __html: content }} />
       </div>
     );

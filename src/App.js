@@ -6,6 +6,7 @@ import LogoutButton from "./LogoutButton";
 import Login from "./Login";
 
 import NewArticle from "./NewArticle";
+import EditArticle from "./EditArticle";
 import AllArticles from "./AllArticles";
 import Article from "./Article";
 import Auth from "./Auth";
@@ -57,6 +58,7 @@ class App extends Component {
           <Route path="/article/new" component={NewArticle} />
           <Route
             path="/article/:slug"
+            exact
             render={props => {
               if (props.match.params.slug === "new") {
                 return null;
@@ -64,6 +66,7 @@ class App extends Component {
               return <Article match={props.match} />;
             }}
           />
+          <Route path="/article/:slug/edit" component={EditArticle} />
         </div>
       </Router>
     );

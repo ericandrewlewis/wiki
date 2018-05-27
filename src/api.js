@@ -32,6 +32,19 @@ const api = {
           article
         })
       }).then(response => response.json());
+    },
+    update(article) {
+      return fetch(`/articles/${article.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${Auth.getToken()}`,
+          token: Auth.getToken()
+        },
+        body: JSON.stringify({
+          article
+        })
+      }).then(response => response.json());
     }
   }
 };
