@@ -29,7 +29,6 @@ class AllArticles extends Component {
 
   render() {
     const { articles } = this.state;
-    // debugger;
     return (
       <div className="AllArticles">
         <h1 className="title">All Articles</h1>
