@@ -2,15 +2,9 @@ import React, { Component } from "react";
 import { schema } from "prosemirror-schema-basic";
 import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
-import { baseKeymap } from "prosemirror-commands";
-import { undo, redo, history } from "prosemirror-history";
-import { keymap } from "prosemirror-keymap";
-import { menuBar } from "prosemirror-menu";
+import { exampleSetup, buildMenuItems } from "prosemirror-example-setup";
 import "prosemirror-menu/style/menu.css";
-
 import { Redirect } from "react-router";
-
-import { buildMenuItems } from "./buildMenuItems";
 import "./style.css";
 import api from "../api";
 
@@ -35,15 +29,7 @@ class NewArticle extends Component {
   bootstrapEditor() {
     let state = EditorState.create({
       schema,
-      plugins: [
-        history(),
-        keymap({ "Mod-z": undo, "Mod-y": redo }),
-        keymap(baseKeymap),
-        menuBar({
-          floating: true,
-          content: buildMenuItems(schema).fullMenu
-        })
-      ]
+      plugins: exampleSetup({ schema, history: true })
     });
     let view = new EditorView(this.editorRef.current, {
       state,
