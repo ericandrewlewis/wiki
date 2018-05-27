@@ -17,6 +17,8 @@ class NewArticle extends Component {
       title: "",
       created: false
     };
+    this.titleRef = React.createRef();
+
     this.editorRef = React.createRef();
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
@@ -31,6 +33,8 @@ class NewArticle extends Component {
       schema,
       plugins: exampleSetup({ schema, history: true })
     });
+
+    this.titleRef.current.focus();
     let view = new EditorView(this.editorRef.current, {
       state,
       dispatchTransaction: transaction => {
@@ -73,7 +77,12 @@ class NewArticle extends Component {
     return (
       <div className="NewArticle">
         <form onSubmit={this.onFormSubmit} onChange={this.onInputChange}>
-          <input type="text" name="title" className="title" />
+          <input
+            type="text"
+            name="title"
+            className="title"
+            ref={this.titleRef}
+          />
           <div className="editor" ref={this.editorRef} />
           <button type="submit">Save</button>
         </form>

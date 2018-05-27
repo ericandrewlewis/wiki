@@ -18,6 +18,7 @@ class EditArticle extends Component {
       title: "",
       edited: false
     };
+    this.titleRef = React.createRef();
     this.editorRef = React.createRef();
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
@@ -30,10 +31,15 @@ class EditArticle extends Component {
       const article = response.data[0];
 
       const doc = JSON.parse(article.attributes.content);
-      this.setState({
-        article: article,
-        title: article.attributes.title
-      });
+      this.setState(
+        {
+          article: article,
+          title: article.attributes.title
+        },
+        () => {
+          this.titleRef.current.focus();
+        }
+      );
       this.bootstrapEditor(doc);
     });
   }
@@ -95,6 +101,7 @@ class EditArticle extends Component {
             name="title"
             className="title"
             value={this.state.title}
+            ref={this.titleRef}
           />
           <div className="editor" ref={this.editorRef} />
           <button type="submit">Save</button>
