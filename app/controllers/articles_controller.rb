@@ -2,7 +2,7 @@ class ArticlesController < ApiController
   before_action :require_login
 
   def index
-    render json: ArticleSerializer.new(Article.all).serializable_hash
+    render json: ArticleSerializer.new(Article.order(:title)).serializable_hash
   end
 
   def create
