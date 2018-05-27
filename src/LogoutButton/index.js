@@ -29,7 +29,11 @@ class App extends Component {
   }
 
   render() {
-    return <button onClick={this.logout}>Logout</button>;
+    return (
+      <form>
+        <button onClick={this.logout}>Logout</button>
+      </form>
+    );
   }
 }
 

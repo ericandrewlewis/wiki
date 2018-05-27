@@ -49,7 +49,15 @@ class App extends Component {
           <h2 className="site-title">Wiki Wiki Wow Wow</h2>
           <LogoutButton onUserLoggedOut={this.onUserLoggedOut} />
           <Route path="/article/new" component={NewArticle} />
-          <Route path="/article/:slug" component={Article} />
+          <Route
+            path="/article/:slug"
+            render={props => {
+              if (props.match.params.slug === "new") {
+                return null;
+              }
+              return <Article match={props.match} />;
+            }}
+          />
         </div>
       </Router>
     );

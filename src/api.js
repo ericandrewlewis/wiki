@@ -10,6 +10,19 @@ const api = {
           token: Auth.getToken()
         }
       }).then(response => response.json());
+    },
+    create(article) {
+      return fetch("/articles", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${Auth.getToken()}`,
+          token: Auth.getToken()
+        },
+        body: JSON.stringify({
+          article
+        })
+      }).then(response => response.json());
     }
   }
 };

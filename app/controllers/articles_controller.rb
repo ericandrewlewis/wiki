@@ -2,8 +2,12 @@ class ArticlesController < ApiController
   before_action :require_login
 
   def create
+    article_params = {}
+    article_params[:title] = params[:article][:title]
+    article_params[:slug] = article_params[:title].parameterize
+    article_params[:content] = params[:article][:content].to_json
     article = Article.create!(article_params)
-    render json: { token: article.auth_token }
+    render json: ArticleSerializer.new(article).serializable_hash
   end
 
   def show_for_slug
@@ -11,12 +15,6 @@ class ArticlesController < ApiController
     json_string =
 
     render json: ArticleSerializer.new(article).serializable_hash
-  end
-
-  private
-
-  def article_params
-    params.require(:article).permit(:content, :title, :slug)
   end
 
 end

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { schema } from "prosemirror-schema-basic";
+import { Node, DOMSerializer } from "prosemirror-model";
+
 import "./style.css";
 import api from "../api";
-
-const text = `<p>Brian Eno created Oblique Strategies, a set of cards with quixotic suggestions for getting through artist's block.</p>`;
 
 class Article extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class Article extends Component {
     };
   }
 
-  componentDidMount() {
+  fetchArticleData() {
     const { slug } = this.props.match.params;
     api.article.bySlug(slug).then(response => {
       if (response.data.length === 0) {
@@ -21,11 +22,24 @@ class Article extends Component {
         return;
       }
       const article = response.data[0];
+      const node = Node.fromJSON(
+        schema,
+        JSON.parse(article.attributes.content)
+      );
+      const serializer = DOMSerializer.fromSchema(schema);
+      const serializedFragment = serializer.serializeFragment(node);
+      const div = document.createElement("div");
+      div.appendChild(serializedFragment);
+
       this.setState({
-        content: article.attributes["content"],
+        content: div.innerHTML,
         title: article.attributes["title"]
       });
     });
+  }
+
+  componentDidMount() {
+    this.fetchArticleData();
   }
 
   render() {

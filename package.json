@@ -4,16 +4,24 @@
   "private": true,
   "proxy": "http://localhost:8080",
   "dependencies": {
+    "concurrently": "^3.5.1",
+    "prosemirror-commands": "^1.0.7",
+    "prosemirror-history": "^1.0.2",
+    "prosemirror-keymap": "^1.0.1",
+    "prosemirror-menu": "^1.0.4",
+    "prosemirror-schema-basic": "^1.0.0",
+    "prosemirror-schema-list": "^1.0.1",
+    "prosemirror-state": "^1.2.0",
+    "prosemirror-view": "^1.3.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "slugify": "^1.3.0"
   },
   "scripts": {
-    "start":
-      "concurrently --names \"React,Rails\" --prefix-colors \"green,blue\" \"react-scripts start\" \"PORT=8080 rails server\"",
-    "build":
-      "cp public-react/* public && react-scripts build && rm -r public/* && mv build/* public",
+    "start": "concurrently --names \"React,Rails\" --prefix-colors \"green,blue\" \"react-scripts start\" \"PORT=8080 rails server\"",
+    "build": "cp public-react/* public && react-scripts build && rm -r public/* && mv build/* public",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

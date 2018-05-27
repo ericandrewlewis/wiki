@@ -1,0 +1,12 @@
+.NewArticle .ProseMirror {
+  padding: 4px 8px 4px 14px;
+  min-height: 180px;
+}
+
+.NewArticle .editor {
+  border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.NewArticle .ProseMirror p {
+  margin-bottom: 1rem;
+}
