@@ -3,10 +3,6 @@
   margin-bottom: 0.5rem;
 }
 
-.Article .title a {
-  margin-left: 1rem;
-}
-
 .Article h2 {
   font-size: 1.5rem;
   margin-bottom: 0.5em;
@@ -22,4 +18,8 @@
   .Article p {
     font-size: 1rem;
   }
+}
+
+.Article a {
+  color: #7161ef;
 }

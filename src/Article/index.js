@@ -49,11 +49,11 @@ class Article extends Component {
     const { title, content, slug } = this.state;
     return (
       <div className="Article">
-        <h1 className="title">
-          {title}
-          <Link to={`/article/${slug}/edit`}>Edit</Link>
-        </h1>
+        <h1 className="title">{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: content }} />
+        <p>
+          <Link to={`/article/${slug}/edit`}>Edit</Link>
+        </p>
       </div>
     );
   }
