@@ -2,9 +2,13 @@ import React, { Component } from "react";
 import { schema } from "prosemirror-schema-basic";
 import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
+import { keymap } from "prosemirror-keymap";
+import { toggleMark } from "prosemirror-commands";
+
 import { exampleSetup, buildMenuItems } from "prosemirror-example-setup";
 import "prosemirror-menu/style/menu.css";
 import { Redirect } from "react-router";
+import { openPrompt, TextField } from "./prompt";
 import "./style.css";
 import api from "../api";
 
@@ -31,7 +35,26 @@ class NewArticle extends Component {
   bootstrapEditor() {
     let state = EditorState.create({
       schema,
-      plugins: exampleSetup({ schema, history: true })
+      plugins: [
+        keymap({
+          "Mod-k": (state, dispatch, view) => {
+            openPrompt({
+              title: "Create a link",
+              fields: {
+                href: new TextField({
+                  label: "Link target",
+                  required: true
+                }),
+                title: new TextField({ label: "Title" })
+              },
+              callback(attrs) {
+                toggleMark(schema.marks.link, attrs)(view.state, view.dispatch);
+                view.focus();
+              }
+            });
+          }
+        })
+      ].concat(exampleSetup({ schema, history: true }))
     });
 
     this.titleRef.current.focus();
