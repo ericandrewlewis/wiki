@@ -25,6 +25,12 @@ class ArticlesController < ApiController
     render json: ArticleSerializer.new(article).serializable_hash
   end
 
+  def destroy
+    article = Article.find(params[:id])
+    article.destroy
+    head :no_content
+  end
+
   def show_for_slug
     article = Article.where(slug: params['slug'])
     json_string =

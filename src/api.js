@@ -11,6 +11,7 @@ const api = {
         }
       }).then(response => response.json());
     },
+
     bySlug(slug) {
       return fetch(`/articles/slug/${slug}.json`, {
         headers: {
@@ -20,6 +21,7 @@ const api = {
         }
       }).then(response => response.json());
     },
+
     create(article) {
       return fetch("/articles", {
         method: "POST",
@@ -33,6 +35,7 @@ const api = {
         })
       }).then(response => response.json());
     },
+
     update(article) {
       return fetch(`/articles/${article.id}`, {
         method: "PUT",
@@ -44,6 +47,12 @@ const api = {
         body: JSON.stringify({
           article
         })
+      }).then(response => response.json());
+    },
+
+    delete(id) {
+      return fetch(`/articles/${id}`, {
+        method: "DELETE"
       }).then(response => response.json());
     }
   }

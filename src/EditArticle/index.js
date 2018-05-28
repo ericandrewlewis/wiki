@@ -19,12 +19,14 @@ class EditArticle extends Component {
       article: {},
       content: "",
       title: "",
-      edited: false
+      edited: false,
+      deleted: false
     };
     this.titleRef = React.createRef();
     this.editorRef = React.createRef();
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
+    this.onDeleteFormSubmit = this.onDeleteFormSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -97,7 +99,7 @@ class EditArticle extends Component {
       .then(response => {
         const article = response.data;
         this.setState({
-          created: true,
+          edited: true,
           article: article
         });
       });
@@ -111,9 +113,22 @@ class EditArticle extends Component {
     });
   }
 
+  onDeleteFormSubmit(evt) {
+    evt.preventDefault();
+    const { id } = this.state.article;
+    api.article.delete(id).then(response => {
+      this.setState({
+        deleted: true
+      });
+    });
+  }
+
   render() {
-    if (this.state.created) {
+    if (this.state.edited) {
       return <Redirect to={`/article/${this.state.article.attributes.slug}`} />;
+    }
+    if (this.state.deleted) {
+      return <Redirect to={`/article/`} />;
     }
     return (
       <div className="EditArticle">
@@ -127,6 +142,9 @@ class EditArticle extends Component {
           />
           <div className="editor" ref={this.editorRef} />
           <button type="submit">Save</button>
+        </form>
+        <form onSubmit={this.onDeleteFormSubmit}>
+          <button type="submit">Delete</button>
         </form>
       </div>
     );
