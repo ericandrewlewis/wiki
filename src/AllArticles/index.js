@@ -34,7 +34,7 @@ class AllArticles extends Component {
         <h1 className="title">All Articles</h1>
         {articles.map(article => (
           <p>
-            <Link to={`article/${article.attributes.slug}`}>
+            <Link to={`/article/${article.attributes.slug}`}>
               {article.attributes.title}
             </Link>
           </p>
