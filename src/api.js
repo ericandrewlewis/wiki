@@ -52,8 +52,13 @@ const api = {
 
     delete(id) {
       return fetch(`/articles/${id}`, {
-        method: "DELETE"
-      }).then(response => response.json());
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${Auth.getToken()}`,
+          token: Auth.getToken()
+        }
+      });
     }
   }
 };

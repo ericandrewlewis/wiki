@@ -116,11 +116,13 @@ class EditArticle extends Component {
   onDeleteFormSubmit(evt) {
     evt.preventDefault();
     const { id } = this.state.article;
-    api.article.delete(id).then(response => {
-      this.setState({
-        deleted: true
+    if (window.confirm("Are you sure you want to delete this article?")) {
+      api.article.delete(id).then(response => {
+        this.setState({
+          deleted: true
+        });
       });
-    });
+    }
   }
 
   render() {
