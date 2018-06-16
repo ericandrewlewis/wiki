@@ -22,6 +22,11 @@
   color: #7161ef;
 }
 
+.NewArticle .ProseMirror blockquote {
+  padding: 0 1rem 0;
+  border-left: 0.25rem solid #eee;
+}
+
 .NewArticle .title {
   width: 100%;
   margin-bottom: 1rem;
