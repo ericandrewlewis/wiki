@@ -1,0 +1,8 @@
+postgres:
+  container_name: postgres
+  restart: always
+  image: arm64v8/postgres:latest
+  volumes:
+    - ./database:/var/lib/postgresql
+  ports:
+    - 5432:5432
