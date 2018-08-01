@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "concurrently --names \"React,Rails\" --prefix-colors \"green,blue\" \"react-scripts start\" \"PORT=8080 rails server\"",
-    "build": "cp public-react/* public && react-scripts build && rm -r public/* && mv build/* public",
+    "build": "mkdir public; cp public-react/* public && react-scripts build && rm -r public/* && mv build/* public",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

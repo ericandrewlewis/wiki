@@ -4,5 +4,13 @@ postgres:
   image: arm64v8/postgres:latest
   volumes:
     - ./database:/var/lib/postgresql
+  expose:
+    - "5432"
   ports:
     - 5432:5432
+app:
+  container_name: rails
+  restart: always
+  image: wikiwikiwowwow
+  links:
+    - postgres
