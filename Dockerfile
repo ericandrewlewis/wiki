@@ -13,4 +13,6 @@ RUN cd /app && npm install
 
 RUN cd /app && npm run build
 
-CMD "rails s"
+WORKDIR /app
+
+CMD ["/usr/local/bundle/bin/rails", "s"]

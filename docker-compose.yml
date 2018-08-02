@@ -1,16 +1,22 @@
 postgres:
-  container_name: postgres
-  restart: always
   image: arm64v8/postgres:latest
   volumes:
-    - ./database:/var/lib/postgresql
+    - /home/picocluster/wiki-database:/var/lib/postgresql/data
   expose:
     - "5432"
-  ports:
-    - 5432:5432
+  environment:
+    - POSTGRES_USER=wiki
+    - POSTGRES_PASSWORD=password
 app:
-  container_name: rails
-  restart: always
   image: wikiwikiwowwow
   links:
     - postgres
+  environment:
+    - WIKI_DATABASE_PASSWORD=password
+    - DATABASE_URL=postgres://wiki:password@postgres:5432/wiki_production
+    - RAILS_ENV=production
+    - SECRET_KEY_BASE=82c8eff4998d950c462d7e6696ada12f61a6e14afc53e82e20f91061d91dc0c3384af6c5eed0c0b217a335595c5981ad7b7176d5717bfd3e8b0740c49ab5088a
+    - RAILS_LOG_TO_STDOUT=yes
+    - RAILS_SERVE_STATIC_FILES=yes
+  ports:
+    - 3000:3000
